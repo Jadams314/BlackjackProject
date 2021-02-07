@@ -34,16 +34,13 @@ public class BlackjackHand extends Hand {
 		
 	}
 
-	@Override
 	public String toString() {
-	Iterator<Card> it = handList.iterator();
-	
-	while (it.hasNext()) {
-		System.out.println(it.next());
-	}
-		
-		
-		return "" + handList;
+		Iterator<Card> it = handList.iterator();
+		while (it.hasNext()) {
+			
+			System.out.print(it.next() + ", ");
+		}
+		return "";
 	}
 	@Override
 	public int hashCode() {

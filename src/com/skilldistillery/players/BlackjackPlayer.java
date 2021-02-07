@@ -26,11 +26,13 @@ public class BlackjackPlayer extends Player {
 		this.hand = hand;
 	}
 
-	@Override
-	public String toString() {
-		return "" + hand ;
-	}
+
 	
+
+	public String toString() {
+		return "" + hand;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

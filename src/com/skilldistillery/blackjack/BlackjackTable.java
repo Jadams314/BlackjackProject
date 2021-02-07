@@ -22,9 +22,11 @@ public class BlackjackTable {
 			dealer.setHand(dealer.dealHand());
 			int dValue = dealer.getHandValue();
 			int pValue = player.getHandValue();
-			System.out.println("The dealer gives you " + player);
-			System.out.println("Your total vale you is " + pValue);
-			System.out.println("The dealer has " + dealer);
+			System.out.println("The Dealer gives you");
+			System.out.print(player);
+			System.out.println("Your total is " + pValue);
+			System.out.println("The dealer gets");
+			System.out.print(dealer);
 			System.out.println("The dealers total value is  " + dValue);
 			if (pValue == 21 && dValue != 21) {
 				System.out.println("Blackjack!");
@@ -41,7 +43,11 @@ public class BlackjackTable {
 			} else {
 				hitOrStay(player);
 				pValue = player.getHandValue();
-				if (pValue > 21) {
+				if (dValue > pValue) {
+					System.out.println("Dealer Wins");
+					keepGoing = false;
+				}
+				else if (pValue > 21) {
 					System.out.println("Thanks for playing!");
 					keepGoing = false;
 				} else {
@@ -69,13 +75,13 @@ public class BlackjackTable {
 			if (hValue < 17) {
 				System.out.println("Dealer Hits");
 				d.setHand(dealer.dealCard(hand));
+				System.out.print(dealer);
 				hValue = (hand.getHandValue(hand));
 				System.out.println("Dealer has " + hValue);
 			} if (hValue > 21) {
 				System.out.println("Dealer busts");
 				System.out.println("You Win");
 			}
-			return hand;
 		}
 		return hand;
 
@@ -115,7 +121,8 @@ public class BlackjackTable {
 				if (choice == 1) {
 					activePlayer.setHand(dealer.dealCard(hand));
 					hValue = (hand.getHandValue(hand));
-					System.out.println(hValue);
+					System.out.print(activePlayer);
+					System.out.println("Your total is " +hValue);
 				} else {
 					System.out.println("You have chosen to stay");
 					return hand;
@@ -126,27 +133,5 @@ public class BlackjackTable {
 		kb.close();
 		return hand;
 	}
-
-	/*
-	 * The table gets 2 players..A dealer and a player
-	 * 
-	 * 
-	 * The table has a deck of cards(52..for now)
-	 * 
-	 * The table will implement the rules of blackjack
-	 * 
-	 * at this table the cards will be dealt to each player (their hand). each time
-	 * the card is dealt we will remove it from the deck.
-	 * 
-	 * Once the cards have been dealt check the value of the hand Player: while
-	 * (hand !=bust) ask player to hit or stay. if hit add a card and check while
-	 * condition. if stay move on to dealer Dealer: while (hand != bust || hand <
-	 * 17) dealer adds a card and rechecks while if (hand >= 17) dealer stays
-	 *
-	 * after players stay check hand value of players. compare value of player vs
-	 * dealer sysout who has higher value w/o bust
-	 *
-	 * 
-	 */
 
 }
